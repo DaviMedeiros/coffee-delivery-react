@@ -13,6 +13,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-family: "Baloo2", sans-serif;
+    font-family: "Baloo 2", sans-serif;
   }
 `
