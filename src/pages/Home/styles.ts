@@ -16,35 +16,18 @@ export const Title = styled.div`
     font-size: 48px;
     font-weight: 800;
     line-height: 130%;
+    color: ${props => props.theme["base-title"]};
   }
 
   p {
     font-size: 20px;
     font-weight: 400;
     line-height: 130%;
+    color: ${props => props.theme["base-subtitle"]};
   }
 `
 
 export const Itens = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-`
-
-export const ItemContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    width: 30px;
-    height: 30px;
-    background-color: ${props => props.theme.primary};
-  }
-  
 `

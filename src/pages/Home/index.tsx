@@ -1,7 +1,8 @@
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
-import CoffeeIntro from '../../assets/image_coffee_intro.png';
-import { BannerContainer, ItemContainer, Itens, Title } from './styles';
 import { useTheme } from 'styled-components';
+import CoffeeIntro from '../../assets/image_coffee_intro.png';
+import { LabelWithIcon } from '../../components/LabelWithIcon';
+import { BannerContainer, Itens, Title } from './styles';
 
 export const Home = () => {
   const theme = useTheme();
@@ -17,30 +18,26 @@ export const Home = () => {
             </p>
           </Title>
           <Itens>
-            <ItemContainer>
-              <div>
-                <ShoppingCart color={theme.background} weight="fill" />
-              </div>
-              <span>Compra simples e segura</span>
-            </ItemContainer>
-            <ItemContainer>
-              <div>
-                <Package color={theme.background} weight="fill" />
-              </div>
-              <span>Embalagem mantém o café intacto</span>
-            </ItemContainer>
-            <ItemContainer>
-              <div>
-                <Timer color={theme.background} weight="fill" />
-              </div>
-              <span>Entrega rápida e rastreada</span>
-            </ItemContainer>
-            <ItemContainer>
-              <div>
-                <Coffee color={theme.background} weight="fill" />
-              </div>
-              <span>O café chega fresquinho até você</span>
-            </ItemContainer>
+            <LabelWithIcon
+              label="Compra simples e segura"
+              icon={<ShoppingCart color={theme.background} weight="fill" />}
+              background={theme['primary-dark']}
+            />
+            <LabelWithIcon
+              label="Embalagem mantém o café intacto"
+              icon={<Package color={theme.background} weight="fill" />}
+              background={theme['base-text']}
+            />
+            <LabelWithIcon
+              label="Entrega rápida e rastreada"
+              icon={<Timer color={theme.background} weight="fill" />}
+              background={theme.primary}
+            />
+            <LabelWithIcon
+              label="O café chega fresquinho até você"
+              icon={<Coffee color={theme.background} weight="fill" />}
+              background={theme.secondary}
+            />
           </Itens>
         </div>
         <img src={CoffeeIntro} alt="" />
