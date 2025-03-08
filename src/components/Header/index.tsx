@@ -9,7 +9,7 @@ export const Header = () => {
     <HeaderContainer>
       <img
         src={Logo}
-        alt="Logo com um copo de café e está escrito 'Coffe Delivery'"
+        alt="Logo com um copo de café e está escrito 'Coffee Delivery'"
       />
       <div>
         <LocationButton>

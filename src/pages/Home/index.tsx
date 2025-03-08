@@ -3,6 +3,7 @@ import { useTheme } from 'styled-components';
 import CoffeeIntro from '../../assets/image_coffee_intro.png';
 import { LabelWithIcon } from '../../components/LabelWithIcon';
 import { BannerContainer, Itens, Title } from './styles';
+import { CoffeeList } from './CoffeeList';
 
 export const Home = () => {
   const theme = useTheme();
@@ -42,6 +43,7 @@ export const Home = () => {
         </div>
         <img src={CoffeeIntro} alt="" />
       </BannerContainer>
+      <CoffeeList />
     </>
   );
 };
