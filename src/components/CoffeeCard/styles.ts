@@ -71,6 +71,12 @@ export const ValueCoffee = styled.span`
 export const ButtonCart = styled.button`
     border: none;
     background-color: ${props => props.theme["secondary-dark"]};
-    padding: 5px;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:disabled{
+      cursor: not-allowed;
+      opacity: 70%;
+    }
 `

@@ -5,8 +5,8 @@ export const InputNumberContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${props => props.theme["base-button"]};
-  padding: 5px; 
-  border-radius: 4px;
+  padding: 8px; 
+  border-radius: 6px;
   gap: 5px;
 
   button{

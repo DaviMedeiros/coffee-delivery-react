@@ -11,12 +11,25 @@ export const HeaderContainer = styled.nav`
   }
 `
 
-export const Cart = styled.button`
+export const ButtonCart = styled.button`
   width: 38px;
   height: 38px;
   border: none;
   border-radius: 4px;
   background-color: ${props => props.theme["primary-light"]};
+  position: relative;
+
+  span {
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    background-color: ${props => props.theme["primary-dark"]};
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
+  }
 `
 
 export const LocationButton = styled.button`

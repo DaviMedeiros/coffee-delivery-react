@@ -1,10 +1,13 @@
-import { useTheme } from 'styled-components';
-import Logo from '../../assets/logo.png';
-import { Cart, HeaderContainer, LocationButton } from './styles';
+import Logo from '@/assets/logo.png';
 import { MapPin, ShoppingCart } from '@phosphor-icons/react';
+import { useTheme } from 'styled-components';
+import { ButtonCart, HeaderContainer, LocationButton } from './styles';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 export const Header = () => {
   const theme = useTheme();
+  const { value } = useLocalStorage('coffee-delivery-cart');
+
   return (
     <HeaderContainer>
       <img
@@ -16,9 +19,10 @@ export const Header = () => {
           <MapPin size={22} color={theme['secondary']} weight="fill" />
           Londrina, PR
         </LocationButton>
-        <Cart>
+        <ButtonCart>
+          {value.length > 0 && <span>{value.length}</span>}
           <ShoppingCart size={22} color={theme['primary-dark']} weight="fill" />
-        </Cart>
+        </ButtonCart>
       </div>
     </HeaderContainer>
   );

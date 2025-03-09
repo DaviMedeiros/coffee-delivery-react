@@ -12,34 +12,39 @@ export const CoffeeList = () => {
       <h1>Nossos Cafés</h1>
       <CoffeeListContainer>
         <CoffeeCard
+          id="1"
           image={Expresso}
           title="Expresso Tradicional"
           description="O tradicional café feito com água quente e grãos moídos"
-          value="9,90"
+          price="9,90"
         />
         <CoffeeCard
+          id="2"
           image={ExpressoAmericano}
           title="Expresso Americano"
           description="Expresso diluído, menos intenso que o tradicional"
-          value="9,90"
+          price="9,90"
         />
         <CoffeeCard
+          id="3"
           image={ExpressoCremoso}
           title="Expresso Cremoso"
           description="Café expresso tradicional com espuma cremosa"
-          value="9,90"
+          price="9,90"
         />
         <CoffeeCard
+          id="4"
           image={ExpressoGelado}
           title="Expresso Gelado"
           description="Bebida preparada com café expresso e cubos de gelo"
-          value="9,90"
+          price="9,90"
         />
         <CoffeeCard
+          id="5"
           image={CafeComLeite}
           title="Café com Leite"
           description="Meio a meio de expresso tradicional com leite vaporizado"
-          value="9,90"
+          price="9,90"
         />
       </CoffeeListContainer>
     </>
