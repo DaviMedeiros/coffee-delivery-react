@@ -1,25 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export function useLocalStorage<T>(item: string){
-  if (!localStorage.getItem(item)){
-    localStorage.setItem(item, JSON.stringify([]))
-  }
-    
-  const [value, setValue] = useState(JSON.parse(localStorage.getItem(item) ?? '') ?? '');
+export function useLocalStorage<T>(key: string) {
+  const [value, setValue] = useState<T>(() => {
+    const storedValue = localStorage.getItem(key);
+    return storedValue ? JSON.parse(storedValue) : [];
+  });
 
   const updateLocalStorage = (newValue: T) => {
     setValue(newValue);
-    localStorage.setItem(item, JSON.stringify(newValue))
-  }
+    localStorage.setItem(key, JSON.stringify(newValue));
+
+    // Dispara um evento global para forçar atualização em outros componentes
+    window.dispatchEvent(new Event("storage"));
+  };
 
   const removeLocalStorage = () => {
-    setValue([]);
-    localStorage.removeItem(item);
-  }
+    setValue([] as T);
+    localStorage.removeItem(key);
 
-  return {
-    value,
-    updateLocalStorage,
-    removeLocalStorage
-  }
+    window.dispatchEvent(new Event("storage"));
+  };
+
+  // Sincroniza o estado sempre que houver mudanças no localStorage
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedValue = localStorage.getItem(key);
+      setValue(storedValue ? JSON.parse(storedValue) : []);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, [key]);
+
+  return { value, updateLocalStorage, removeLocalStorage };
 }

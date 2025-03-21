@@ -13,7 +13,7 @@ export interface ICoffeeCardProps {
   price: string;
 }
 
-interface ICartItem {
+export interface ICartItem {
   id: string;
   name: string;
   price: string;

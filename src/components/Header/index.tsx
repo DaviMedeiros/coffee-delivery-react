@@ -3,10 +3,13 @@ import { MapPin, ShoppingCart } from '@phosphor-icons/react';
 import { useTheme } from 'styled-components';
 import { ButtonCart, HeaderContainer, LocationButton } from './styles';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { useNavigate } from 'react-router-dom';
+import { ICartItem } from '../CoffeeCard';
 
 export const Header = () => {
   const theme = useTheme();
-  const { value } = useLocalStorage('coffee-delivery-cart');
+  const navigate = useNavigate();
+  const { value } = useLocalStorage<ICartItem[]>('coffee-delivery-cart');
 
   return (
     <HeaderContainer>
@@ -19,7 +22,7 @@ export const Header = () => {
           <MapPin size={22} color={theme['secondary']} weight="fill" />
           Londrina, PR
         </LocationButton>
-        <ButtonCart>
+        <ButtonCart onClick={() => navigate('checkout')}>
           {value.length > 0 && <span>{value.length}</span>}
           <ShoppingCart size={22} color={theme['primary-dark']} weight="fill" />
         </ButtonCart>
