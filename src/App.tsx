@@ -6,10 +6,12 @@ import { Layout } from '@/components/Layout';
 import { Home } from '@/pages/Home';
 import { Checkout } from '@/pages/Checkout';
 import { Success } from '@/pages/Success';
+import { ToastContainer } from 'react-toastify';
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
+      <ToastContainer />
       <GlobalStyle />
       <BrowserRouter>
         <Routes>

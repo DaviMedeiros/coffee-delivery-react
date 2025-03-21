@@ -4,6 +4,7 @@ import { InputNumber } from '../InputNumber';
 import { ButtonCart, CoffeeCardContainer, Tag, ValueCoffee } from './styles';
 import { useState } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { toast } from 'react-toastify';
 
 export interface ICoffeeCardProps {
   id: string;
@@ -58,6 +59,18 @@ export const CoffeeCard = ({
     } else {
       updateLocalStorage([item]);
     }
+
+    toast(`Adicionado ${item.amount} - ${item.name} no carrinho`, {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      type: 'success',
+      theme: 'light',
+    });
   };
 
   const handleClickAmount = (isAdd: boolean) => {
